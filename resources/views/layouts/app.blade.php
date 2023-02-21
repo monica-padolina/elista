@@ -12,7 +12,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.5/css/perfect-scrollbar.css"
         integrity="sha512-2xznCEl5y5T5huJ2hCmwhvVtIGVF1j/aNUEJwi/BzpWPKEzsZPGpwnP1JrIMmjPpQaVicWOYVu8QvAIg9hwv9w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>ELista</title>
+    <title>ELista</title>
     <title>{{ config('app.name', 'ELista') }}</title>
 </head>
 
@@ -23,10 +23,43 @@
             <li class="nav-item"><a class="nav-link" href="index.html">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
-                    </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a>
+                    </svg> Dashboard</a>
             </li>
 
-            <li class="nav-title">Components</li>
+            <li class="nav-title">ELISTA</li>
+            <li class="nav-group">
+                <a class="nav-link" href="{{ route('pages.index') }}">
+                    <svg class="nav-icon">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
+                    </svg> Pages
+                </a>
+            </li>
+
+            <li class="nav-title">{{ __('Manage To Do Lists') }}</li>
+            @foreach (\App\Models\ListGroup::with('todolists')->get() as $group)
+                <li class="nav-group"><a class="nav-link nav-group-toggle" href="{{ route('list_groups.edit', $group->id) }}">
+                        <svg class="nav-icon">
+                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
+                        </svg> {{ $group->name }}</a>
+                    <ul class="nav-group-items">
+                        @foreach ($group->todolists as $todolist)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('list_groups.todolists.edit', [$group, $todolist]) }}">
+                                    <span class="nav-icon"></span>
+                                    {{ $todolist->name }}</a>
+                            </li>
+                        @endforeach 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('list_groups.todolists.create', $group) }}">{{ __('Add Task') }} </a>
+                        </li>
+                    </ul>
+                </li>
+            @endforeach
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('list_groups.create') }}">{{ __('New To Do List Group') }} </a>
+                </li>
+
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
@@ -38,7 +71,7 @@
             </li>
 
             <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
+                    onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>

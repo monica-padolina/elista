@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::resource(name: 'pages', controller: \App\Http\Controllers\PageController::class);
+    Route::resource(name: 'list_groups', controller: \App\Http\Controllers\ListGroupController::class);
+    Route::resource(name: 'list_groups.todolists', controller: \App\Http\Controllers\TodolistController::class);
+});
