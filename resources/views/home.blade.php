@@ -7,6 +7,9 @@
             <div class="card">
                 <div class="card-header">{{ __('ELISTA') }}</div>
 
+                <div class="card-body">
+                    Take control of your day.
+                </div>
             </div>
         </div>
     </div>
