@@ -41,6 +41,7 @@ class TodolistController extends Controller
      */
     public function edit(ListGroup $listGroup, todolist $todolist)
     {
+        // $todolist->load('tasks');
         return view('todolists.edit', compact('listGroup', 'todolist'));
     }
 

@@ -39,12 +39,36 @@
                 {{-- -- --}}
                 <hr />
                 <h2>{{ __('List of Tasks') }}</h2>
+
+                <div class="card mb-4 mt-4 p-4">
+                    <table class="table">
+                        <tbody>
+                            @foreach($todolist->tasks as $task)
+                          <tr>
+                            <td>{{ $task->name }}</td>
+                            {{-- Delete --}}
+                            <td>
+                                <a class="btn btn-primary" href="{{ route('todolists.tasks.edit', [$todolist, $task]) }}">Edit</a>
+
+                                <form style="display: inline-block" action="{{ route('todolists.tasks.destroy', [$todolist, $task]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this item?')">Delete</button>
+                                </form>
+                            </td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                </div>
+                <hr />
+
                 {{-- -- --}}
                 <div class="card">
-                    @if ($errors->any())
+                    @if ($errors->storetask->any())
                         <div class="alert alert-danger">
                             <ul>
-                                @foreach ($errors->all() as $error)
+                                @foreach ($errors->storetask->all() as $error)
                                     <li>{{ $error }}</li>
                                 @endforeach
                             </ul>
@@ -56,13 +80,13 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="name" class="form-label">New Task</label>
-                                <input type="text" class="form-control" name="name"
+                                <input value="{{ old('name') }}" type="text" class="form-control" name="name"
                                     placeholder="Task name">
                             </div>
 
                             <div class="mb-3">
                                 <label for="name" class="form-label">Description</label>
-                                <textarea rows="5" class="form-control" name="description"></textarea>
+                                <textarea rows="5" class="form-control" name="description">{{ old('description') }}</textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Save Task</button>
