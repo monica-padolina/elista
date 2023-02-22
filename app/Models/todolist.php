@@ -11,4 +11,8 @@ class todolist extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = ['list_group_id', 'name'];
+
+    public function tasks(){
+        return $this->hasMany(Task::class);
+    }
 }
