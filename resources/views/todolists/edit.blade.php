@@ -38,7 +38,7 @@
                 </div>
                 {{-- -- --}}
                 <hr />
-                <h2>{{ __('SUBTASKS') }} {{ $todolist->name }}</h2>
+                <h2>{{ __('Subtasks in ') }} {{ $todolist->name }}</h2>
 
                 <div class="card mb-4 mt-4 p-4">
                     <table class="table">
