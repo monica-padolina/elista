@@ -52,15 +52,19 @@ class TaskController extends Controller
      */
     public function edit(todolist $todolist, Task $task)
     {
-        return view('tasks.edit', compact('task'));
+        return view('tasks.edit', compact('todolist','task'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreTaskRequest $request, todolist $todolist, Task $task)
     {
-        //
+        $task->update($request->validated());
+        
+        return redirect()->route('list_groups.todolists.edit', [
+            $todolist->list_group_id, $todolist
+        ]);
     }
 
     /**
