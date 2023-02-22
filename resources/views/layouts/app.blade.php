@@ -37,7 +37,7 @@
 
             <li class="nav-title">{{ __('Manage To Do Lists') }}</li>
             @foreach (\App\Models\ListGroup::with('todolists')->get() as $group)
-                <li class="nav-group"><a class="nav-link nav-group-toggle" href="{{ route('list_groups.edit', $group->id) }}">
+                <li class="nav-group"><a class="nav-link nav-toggle" href="{{ route('list_groups.edit', $group->id) }}">
                         <svg class="nav-icon">
                             <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
                         </svg> {{ $group->name }}</a>
@@ -50,7 +50,7 @@
                             </li>
                         @endforeach 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('list_groups.todolists.create', $group) }}">{{ __('Add Task') }} </a>
+                            <a class="nav-link" href="{{ route('list_groups.todolists.create', $group) }}">{{ __('Add To Do') }} </a>
                         </li>
                     </ul>
                 </li>
