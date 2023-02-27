@@ -2,49 +2,61 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elista</title>
+    <!-- Include Bootstrap CSS from CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.5/css/perfect-scrollbar.css"
-        integrity="sha512-2xznCEl5y5T5huJ2hCmwhvVtIGVF1j/aNUEJwi/BzpWPKEzsZPGpwnP1JrIMmjPpQaVicWOYVu8QvAIg9hwv9w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>ELista</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+
 
 </head>
 
-<body class="antialiased">
-    <div class="bg-light min-vh-100 d-flex flex-row align-items-center text-dark">
-        @if (Route::has('login'))
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6 mb-6">
-                        <div class="clearfix">
-                            <h1 class="float-start display-3 me-4">ELISTA</h1>
-                            <h4 class="pt-3">Take control of your day.</h4>
-                            <p class="text-medium-emphasis">One to do list at a time.</p>
-                        </div>
-                        <div class="mt-2">
-                            @auth
-                                <a class="btn btn-primary" href="{{ url('/home') }}">Home</a>
-                            @else
-                                <a href="{{ route('login') }}" class="btn btn-dark text-light btn-lg">Log in </a>
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="btn btn-secondary btn-lg">Register</a>
-                                @endif
-                            </div>
-                        </div>
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 mt-5">
+                <div class="d-flex align-items-center justify-content-center h-100">
+                    <div class="text-center">
+                        <img src="{{ asset('bg-img.jpeg') }}" alt="Background image" class="img-fluid">
                     </div>
                 </div>
-                @endauth    
-            @endif
+            </div>
+            <div class="col-md-6 text-center mt-5 pt-5">
+
+                <div class="text-center mt-5 pt-5">
+                    <h1>Elista</h1>
+                    <h4>Take control of your day.</h4>
+                    <p>One to-do list at a time.</p>
+
+                    @auth
+                        <a href="{{ url('/home') }}" class="btn btn-primary">Home</a>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-primary">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="btn btn-secondary">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            </div>
         </div>
-    </body>
+    </div>
 
-    </html>
 
+    <!-- Include Bootstrap JS from CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
