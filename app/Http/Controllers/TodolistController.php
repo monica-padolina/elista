@@ -33,7 +33,7 @@ class TodolistController extends Controller
     public function store(StoreTodolistRequest $request, ListGroup $listGroup)
     {
         $listGroup->todolists()->create($request->validated());
-        return redirect()->route('home');
+        return view('todolists.create', compact('listGroup'));
     }
 
     /**
@@ -61,6 +61,6 @@ class TodolistController extends Controller
     {
         $todolist->delete();
 
-        return redirect()->route('home');
+        return view('todolists.edit', compact('listGroup', 'todolist'));
     }
 }

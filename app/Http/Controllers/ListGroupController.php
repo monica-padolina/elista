@@ -17,7 +17,7 @@ class ListGroupController extends Controller
     public function store(StoreListGroupRequest $request)
     {
         ListGroup::create($request->validated());
-        return redirect()->route('home');
+        return view('list_groups.create');
     }
 
     public function edit(ListGroup $listGroup)
@@ -29,13 +29,13 @@ class ListGroupController extends Controller
     {
         $listGroup->update($request->validated());
 
-        return redirect()->route('home');
+        return view('list_groups.create');
     }
 
     public function destroy(ListGroup $listGroup)
     {
         $listGroup->delete();
 
-        return redirect()->route('home');
+        return view('list_groups.create');
     }
 }

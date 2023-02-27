@@ -17,7 +17,7 @@
                     <form action="{{ route('list_groups.update', $listGroup) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <div class="card-header">{{ __('Edit To Do List Group') }}</div>
+                        <div class="card-header" style="background-color: #d3b6a0;">{{ __('Edit To Do List Group') }}</div>
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="name" class="form-label">TASKS</label>
@@ -32,7 +32,7 @@
                     <form action="{{ route('list_groups.destroy', $listGroup) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('You are deleting the entire list. Confirm?')">Delete This List</button>
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('You are deleting the entire list. Confirm?')">Delete This List Group</button>
                     </form> 
                 </div>
             </div>

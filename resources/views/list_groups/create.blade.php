@@ -16,7 +16,7 @@
                     @endif
                     <form action="{{ route('list_groups.store') }}" method="POST">
                         @csrf
-                        <div class="card-header">{{ __('New To Do List Group') }}</div>
+                        <div class="card-header" style="background-color: #d3b6a0;">{{ __('New To Do List Group') }}</div>
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="formGroupExampleInput" class="form-label">To Do List</label>

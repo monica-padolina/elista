@@ -17,7 +17,7 @@
                     <form action="{{ route('todolists.tasks.update', [$todolist, $task]) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <div class="card-header">{{ __('Edit Task') }}</div>
+                        <div class="card-header" style="background-color: #d3b6a0;">{{ __('Edit Task') }}</div>
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Task Name</label>
@@ -33,7 +33,6 @@
                         </div>
                     </form>
                 </div>
-                {{-- -- --}}
 
          
             </div>

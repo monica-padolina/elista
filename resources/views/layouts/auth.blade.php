@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #d3b6a0;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ 'Elista' }}
@@ -72,7 +72,7 @@
             </div>
         </nav>
 
-<div class="row">
+<div class="row mt-5 pt-5">
   <div class="col-md-6 mt-5">
     <div class="d-flex align-items-center justify-content-center h-100">
         <div class="text-center">

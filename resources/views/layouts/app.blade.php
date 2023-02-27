@@ -18,8 +18,8 @@
 
 <body class="c-app">
 
-    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-        <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+    <div class="sidebar sidebar-light sidebar-fixed" id="sidebar" style="background-color: #301E14;">
+        <ul class="sidebar-nav text-center" data-coreui="navigation" data-simplebar="">
 
             <li class="nav-title">{{ __('Manage To Do Lists') }}</li>
             @foreach (\App\Models\ListGroup::with('todolists')->get() as $group)
@@ -40,19 +40,22 @@
                                       </svg> {{ $todolist->name }}</a>
                             </li>
                         @endforeach
-                        <li class="nav-title bg-primary">
-                            <a class="nav-link"
-                                href="{{ route('list_groups.todolists.create', $group) }}">{{ __('Add New List') }}
+                        <li class="nav-title">
+                            <a class="nav-link border border-light"
+                                href="{{ route('list_groups.todolists.create', $group) }}">{{ __('New Task List') }}
                             </a>
                         </li>
                     </ul>
                 </li>
             @endforeach
 
-            <li class="nav-title bg-success">
-                <a class="nav-link text-white" href="{{ route('list_groups.create') }}">{{ __('New To Do List Group') }}
-                </a>
-            </li>
+                <li class="nav-title text-center">
+                    <a class="nav-link border border-light" href="{{ route('list_groups.create') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                          </svg>
+                        {{ __('New To Do List Group') }}</a>
+                </li>
 
 
             <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
@@ -72,12 +75,11 @@
             </li>
 
         </ul>
-        <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>
-    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
-        <header class="header header-sticky mb-4 bg-dark">
-            <div class="container-fluid justify-content-center text-light">
-                <h1>ELISTA</h1>
+    <div class="wrapper d-flex flex-column min-vh-100">
+        <header class="header header-sticky mb-4">
+            <div class="container-fluid justify-content-center">
+                <h1><a class="navbar-brand" href="{{ route('home') }}">ELISTA</a></h1>
             </div>
         </header>
         <div class="c-body">

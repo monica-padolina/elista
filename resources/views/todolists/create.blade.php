@@ -16,7 +16,7 @@
                     @endif
                     <form action="{{ route('list_groups.todolists.store', $listGroup) }}" method="POST">
                         @csrf
-                        <div class="card-header">{{ __('New Task in ') }} {{ $listGroup->name }}</div>
+                        <div class="card-header" style="background-color: #d3b6a0;">{{ __('New Task in ') }} {{ $listGroup->name }}</div>
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Task</label>

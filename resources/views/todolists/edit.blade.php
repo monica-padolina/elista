@@ -17,7 +17,7 @@
                     <form action="{{ route('list_groups.todolists.update', [$listGroup, $todolist]) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <div class="card-header">{{ __('Edit To Do List ') }}</div>
+                        <div class="card-header" style="background-color: #d3b6a0;">{{ __('Edit To Do List ') }}</div>
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="name" class="form-label">To Do List</label>
