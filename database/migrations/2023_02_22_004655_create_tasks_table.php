@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('todolist_id')->constrained();
             $table->string('name');
             $table->text('description');
+            $table->date('due_date')->nullable();
+            $table->time('due_time')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

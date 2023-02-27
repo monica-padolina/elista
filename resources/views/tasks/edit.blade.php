@@ -25,6 +25,12 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="due_date" class="form-label">Due Date and Time</label>
+                                <input type="date" class="form-control" name="due_date" value="{{ old('due_date') }}">
+                                <input type="time" class="form-control mt-3" name="due_time" value="{{ old('due_time') }}" >
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
                                 <textarea rows="5" class="form-control" name="description">{{ $task->description }}</textarea>
                             </div>

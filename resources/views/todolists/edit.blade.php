@@ -93,6 +93,11 @@
                                 <input value="{{ old('name') }}" type="text" class="form-control" name="name"
                                     placeholder="Task name">
                             </div>
+                            <div class="mb-3">
+                                <label for="due_date" class="form-label">Due Date and Time</label>
+                                <input id="due_date" type="date" class="form-control" name="due_date" value="{{ old('due_date') }}">
+                                <input id="due_time" type="time" class="form-control mt-3" name="due_time" value="{{ old('due_time') }}" >
+                            </div>
 
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
