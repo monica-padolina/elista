@@ -48,11 +48,13 @@
                                     <td>
                                         <input class="form-check-input" type="checkbox" value=""
                                             id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             {{ $task->name }}
                                         </label>
+                                        <p> Due Date: {{ $task->due_date }} <br> Due Time: {{ $task->due_time }}</p>
                                     </td>
-                                    {{-- Delete --}}
+
+                                    {{-- Delete & Delete --}}
                                     <td>
                                         <a class="btn btn-primary"
                                             href="{{ route('todolists.tasks.edit', [$todolist, $task]) }}">Edit</a>

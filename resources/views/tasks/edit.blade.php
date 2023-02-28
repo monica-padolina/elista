@@ -26,8 +26,8 @@
 
                             <div class="mb-3">
                                 <label for="due_date" class="form-label">Due Date and Time</label>
-                                <input type="date" class="form-control" name="due_date" value="{{ old('due_date') }}">
-                                <input type="time" class="form-control mt-3" name="due_time" value="{{ old('due_time') }}" >
+                                <input type="date" class="form-control" name="due_date" value="{{ $task->due_date }}">
+                                <input type="time" class="form-control mt-3" name="due_time" value="{{ $task->due_time }}" >
                             </div>
 
                             <div class="mb-3">

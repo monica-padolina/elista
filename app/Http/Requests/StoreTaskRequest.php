@@ -26,6 +26,8 @@ class StoreTaskRequest extends FormRequest
         return [
             'name' => 'required',
             'description' => 'required',
+            'due_date' => 'nullable|date',
+            'due_time' => 'nullable|date_format:H:i',
         ];
     }
 }

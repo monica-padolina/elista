@@ -51,7 +51,7 @@ class TodolistController extends Controller
     public function update(StoreTodolistRequest $request, ListGroup $listGroup, todolist $todolist)
     {
         $todolist->update($request->validated());
-        return redirect()->route('home');
+        return view('todolists.edit', compact('listGroup', 'todolist'));
     }
 
     /**
