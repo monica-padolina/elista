@@ -46,11 +46,16 @@
                             @foreach ($todolist->tasks as $task)
                                 <tr>
                                     <td>
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckDefault">
-                                        <label class="form-check-label">
-                                            {{ $task->name }}
-                                        </label>
+                                        <form id="task-form-{{ $task->id }}" action="{{ route('todolists.tasks.update', [$todolist, $task]) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="form-check">
+                                                <input type="hidden" name="completed" value="0">
+                                                <input class="form-check-input" type="checkbox" value="1" id="completed-{{ $task->id }}" name="completed" {{ $task->completed ? 'checked' : '' }}
+                                                onchange="document.getElementById('task-form-{{ $task->id }}').submit();">
+                                                <label class="form-check-label" for="completed-{{ $task->id }}">{{ $task->name }}</label>
+                                            </div>
+                                        </form>                                                                               
                                         <p> Due Date: {{ $task->due_date }} <br> Due Time: {{ $task->due_time }}</p>
                                     </td>
 
@@ -97,8 +102,10 @@
                             </div>
                             <div class="mb-3">
                                 <label for="due_date" class="form-label">Due Date and Time</label>
-                                <input id="due_date" type="date" class="form-control" name="due_date" value="{{ old('due_date') }}">
-                                <input id="due_time" type="time" class="form-control mt-3" name="due_time" value="{{ old('due_time') }}" >
+                                <input id="due_date" type="date" class="form-control" name="due_date"
+                                    value="{{ old('due_date') }}">
+                                <input id="due_time" type="time" class="form-control mt-3" name="due_time"
+                                    value="{{ old('due_time') }}">
                             </div>
 
                             <div class="mb-3">
@@ -109,7 +116,7 @@
                             <button type="submit" class="btn btn-primary">Save Subtask</button>
                         </div>
                     </form>
-                </div>  
+                </div>
             </div>
         </div>
     </div>

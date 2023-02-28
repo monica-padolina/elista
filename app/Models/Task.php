@@ -10,5 +10,5 @@ class Task extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['todolist_id', 'name', 'description', 'due_date', 'due_time'];
+    protected $fillable = ['todolist_id', 'name', 'description', 'due_date', 'due_time', 'completed'];
 }
