@@ -1,4 +1,4 @@
-Elista is a to-do list web app that can manage multiple group lists of multiple lists. Each task in a list can also have multiple subtasks. It is written in PHP, utilizing various frameworks and technologies such as JQuery, Laravel, and Bootstrap.
+Elista is a to-do list web app that can manage multiple group lists of multiple lists. Each task in a list can also have multiple subtasks. It is written in PHP, utilizing various frameworks and technologies such as JQuery, Laravel, and Bootstrap. Data is saved in a MySQL database.
 
 WELCOME PAGE:
 <img width="1338" alt="Elista-Welcome" src="https://user-images.githubusercontent.com/124849834/221786752-594d6bc0-6e81-4b87-af7a-3fa3dc746619.png">
